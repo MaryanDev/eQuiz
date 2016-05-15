@@ -4,9 +4,12 @@
 }
 
 @section HeadStyles{
-    <link rel="stylesheet" href="~/Areas/Student/Styles/equiz-temp.css"/>
+    <link rel="stylesheet" href="~/Areas/Student/Styles/equiz-temp.css" />
 }
 
+@section HeadScripts{
+    <script src="~/Areas/Student/Scripts/dashboard.controller.js"></script>
+}
 
 <header>
     <table id='headerTable'>
@@ -17,37 +20,28 @@
     </table>
 </header>
 <hr>
-<div id='content'>
-    <table id='quizzesTable'>
+<div id='content' ng-app="equizModule">
+    <table id='quizzesTable' ng-controller="dashboardCtrl">
         <thead>
             <tr>
                 <th><h2>Quizzes</h2></th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td><a href="#">Quizz1</a></td>
-                <td>Start date/time</td>
-                <td>Duration</td>
-                <td><a href='#'>Start</a></td>
-            </tr>
-            <tr>
-                <td><a href="#">Quizz2</a></td>
-                <td>Start date/time</td>
-                <td>Duration</td>
-                <td>Inactive</td>
-            </tr>
-            <tr>
-                <td><a href="#">Quizz3</a></td>
-                <td>Start date/time</td>
-                <td>Duration</td>
-                <td>Inactive</td>
-            </tr>
-            <tr>
-                <td><a href="#">Quizz4</a></td>
-                <td>Start date/time</td>
-                <td>Duration</td>
-                <td>Inactive</td>
+            <tr ng-repeat="quiz in allQuizes">
+                <td>
+                    {{quiz.Name}}
+                </td>
+                <td>
+                    {{quiz.StartDate}}
+                </td>
+                <td>
+                    {{quiz.TimeLimitMinutes}}
+                </td>
+                <td>
+                    <a href="#" ng-if="quiz.InternetAccess">Start</a>
+                    <div ng-if="!quiz.InternetAccess">Inactive</div>
+                </td>
             </tr>
         </tbody>
     </table>
