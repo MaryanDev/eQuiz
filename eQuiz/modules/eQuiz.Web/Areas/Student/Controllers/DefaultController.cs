@@ -40,7 +40,7 @@ namespace eQuiz.Web.Areas.Student.Controllers
                           {
                               Id = q.Id,
                               Name = q.Name,
-                              StartDate = q.StartDate.ToString(),
+                              StartDate = q.StartDate.HasValue ? q.StartDate.Value.ToString() : "No start date",
                               TimeLimitMinutes = q.TimeLimitMinutes,
                               InternetAccess = q.InternetAccess
                           };

@@ -15,7 +15,7 @@ namespace eQuiz.Repositories
             List<Quiz> result;
             using (var context = new eQuizEntities())
             {
-                context.Configuration.ProxyCreationEnabled = false;
+                //context.Configuration.ProxyCreationEnabled = false;
 
                 var query = from quiz in context.Quizs
                             select quiz;
