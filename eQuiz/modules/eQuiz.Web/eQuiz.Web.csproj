@@ -101,6 +101,7 @@
     <Content Include="Areas\Moderator\Styles\equiz-temp.css" />
     <Content Include="Areas\Student\Scripts\dashboard.controller.js" />
     <Content Include="Areas\Student\Scripts\dashboard.service.js" />
+    <Content Include="Areas\Student\Scripts\quizInRun.controller.js" />
     <Content Include="Areas\Student\Styles\equiz-temp.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\shared\equiz.module.js" />
@@ -142,6 +143,7 @@
     <Content Include="Areas\Student\Views\Default\Details.cshtml" />
     <Content Include="Areas\Student\Views\Account\Login.cshtml" />
     <Content Include="connections.config" />
+    <Content Include="Areas\Student\Views\Default\QuizInRun.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

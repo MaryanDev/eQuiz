@@ -23,16 +23,24 @@ namespace eQuiz.Web.Areas.Student.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult Details()
         {
             return View();
         }
 
+        [HttpGet]
         public ActionResult Dashboard()
         {
             return View();
         }
 
+        public ActionResult QuizInRun()
+        {
+            return View();
+        }
+
+        [HttpGet]
         public JsonResult GetQuizes()
         {
             var quizzes = from q in _quizRepo.GetAllQuizes()
