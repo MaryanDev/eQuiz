@@ -3,6 +3,6 @@
     var equizModule = angular.module("equizModule");
 
     equizModule.controller("quizInRunCtrl", ["$scope", function ($scope) {
-
+        $scope.timeLeftMinutes = 30;
     }]);
 })(angular);

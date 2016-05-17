@@ -35,6 +35,7 @@ namespace eQuiz.Web.Areas.Student.Controllers
             return View();
         }
 
+        
         public ActionResult QuizInRun()
         {
             return View();
