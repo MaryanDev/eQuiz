@@ -5,21 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using eQuiz.Entities;
 
-
 namespace eQuiz.Repositories
 {
-    public class SqlQuizRepository : IQuizRepository
+    public class SqlQuizVariantRepository : IQuizVariant
     {
-
-        public IEnumerable<Quiz> GetAllQuizzes()
+        public IEnumerable<QuizVariant> GetAllVariants()
         {
-            List<Quiz> result;
+            List<QuizVariant> result;
             using (var context = new eQuizEntities())
             {
                 //context.Configuration.ProxyCreationEnabled = false;
 
-                var query = from quiz in context.Quizs
-                            select quiz;
+                var query = from variant in context.QuizVariants
+                            select variant;
 
                 result = query.ToList();
             }
