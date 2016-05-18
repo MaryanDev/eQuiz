@@ -1,4 +1,4 @@
-﻿<div id='content>
+﻿<div id='content'>
     <table id='quizzesTable'>
         <thead>
             <tr>
@@ -17,7 +17,7 @@
                     {{quiz.TimeLimitMinutes}}
                 </td>
                 <td>
-                    <a href='#' ng-if="quiz.InternetAccess" ng-click="getQuestionById(quiz.Id)">Start{{quiz.Id}}</a>
+                    <a href='#/quizInRun' ng-if="quiz.InternetAccess" ng-click="getQuestionById(quiz.Id)">Start{{quiz.Id}}</a>
                     <div ng-if="!quiz.InternetAccess">Inactive</div>
                 </td>
             </tr>

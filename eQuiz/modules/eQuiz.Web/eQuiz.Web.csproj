@@ -103,8 +103,8 @@
     <Content Include="Areas\Student\Scripts\dashboard.service.js" />
     <Content Include="Areas\Student\Scripts\quizInRun.controller.js" />
     <Content Include="Areas\Student\Scripts\routeConfig.js" />
-    <Content Include="Areas\Student\Scripts\templetes\DashboardTemplete.html" />
-    <Content Include="Areas\Student\Scripts\templetes\QuizInRunTemplete.html" />
+    <Content Include="Areas\Student\Scripts\templates\DashboardTemplate.html" />
+    <Content Include="Areas\Student\Scripts\templates\QuizInRunTemplate.html" />
     <Content Include="Areas\Student\Styles\equiz-temp.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app\shared\equiz.module.js" />

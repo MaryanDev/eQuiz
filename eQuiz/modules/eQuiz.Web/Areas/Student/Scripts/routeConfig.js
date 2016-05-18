@@ -3,18 +3,18 @@
     var equizModule = angular.module("equizModule");
     equizModule.config(function ($routeProvider) {
         $routeProvider.when("/", {
-            templateUrl: "../templetes/DashboardTemplete.html",
-            controller: "dashboardCtrl"
+            templateUrl: "/Areas/Student/Scripts/templates/DashboardTemplate.html",
+            controller: "dashboardCtrl",
+            controllerAs: "dashboardCtrl"
         })
         .when("/quizInRun", {
-            templateUrl: "../templetes/QuizInRunTemplete.html",
-            controller: "quizInRunCtrl"
+            templateUrl: "/Areas/Student/Scripts/templates/QuizInRunTemplate.html",
+            controller: "quizInRunCtrl",
+            controllerAs: "quizCtrl"
         })
         .otherwise({
             redirectTo: '/'
         });
 
     });
-
-
 })(angular);
