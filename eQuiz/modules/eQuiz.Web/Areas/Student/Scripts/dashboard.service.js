@@ -5,7 +5,9 @@
     equizModule.factory("dashboardService", ["$http", function ($http) {
 
         var service = {
-            getQuizzes: getQuizzesAjax
+            getQuizzes: getQuizzesAjax,
+            //getQuestionsById: getQuestionsByIdAjax
+
         };
 
         return service;
@@ -14,5 +16,15 @@
             var promise = $http.get("GetQuizes");
             return promise;
         };
+
+        //function getQuestionsByIdAjax(id) {
+        //    var promise = $http.post('GetQuestionsById', id, config)
+        //    .success(function (data, status, headers, config) {
+        //        console.log('Ok');
+        //    })
+        //    .error(function (data, status, header, config) {
+        //        console.log('NotOk');
+        //    });
+        //};
     }]);
 })(angular);

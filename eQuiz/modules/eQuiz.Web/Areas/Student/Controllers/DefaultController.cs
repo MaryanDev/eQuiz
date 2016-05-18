@@ -68,9 +68,9 @@ namespace eQuiz.Web.Areas.Student.Controllers
             return Json(quizzesList, JsonRequestBehavior.AllowGet);
         }
 
-
-        public JsonResult GetQuestionsById()
+        public JsonResult GetQuestionsById(string id)
         {
+            int questionId = Convert.ToInt32(id);
             var listQuizes = _quizRepo.GetAllQuizzes();
             var listQuestions = _questionRepo.GetAllQuestions();
             var listQuestionTypes = _questionTypeRepo.GetAllQuestionTypes();
@@ -82,7 +82,7 @@ namespace eQuiz.Web.Areas.Student.Controllers
                            join quizQuestion in listQuizQuestions on variant.Id equals quizQuestion.QuizVariantId
                            join question in listQuestions on quizQuestion.QuestionId equals question.Id
                            join questionType in listQuestionTypes on question.QuestionTypeId equals questionType.Id
-                           where quiz.Id == 2
+                           where quiz.Id == questionId
                            select new
                            {
                                Text = question.QuestionText,

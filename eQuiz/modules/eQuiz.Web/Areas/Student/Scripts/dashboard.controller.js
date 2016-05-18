@@ -1,4 +1,4 @@
-﻿/// <reference path="C:\Users\maryan.maryan-PC\Desktop\eQuiz-master\eQuiz\modules\eQuiz.Web\Scripts/libs/angularjs/angular.js" />
+﻿
 (function (angular) {
     var equizModule = angular.module("equizModule");
 
@@ -12,5 +12,18 @@
                 $scope.allQuizes = data;
             });
         };
+
+        //$scope.getQuestionById = function (questionId) {
+
+        //    $http({
+        //        method: "GET",
+        //        url: "GetQuestionsById",
+        //        params: { id: questionId }
+
+        //    }).then(function (response) {
+        //        console.log(response.data);
+        //    });
+        //};
+
     }]);
 })(angular);
