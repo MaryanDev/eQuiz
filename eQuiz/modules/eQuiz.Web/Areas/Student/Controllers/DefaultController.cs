@@ -86,13 +86,13 @@ namespace eQuiz.Web.Areas.Student.Controllers
                            join question in listQuestions on quizQuestion.QuestionId equals question.Id
                            join questionType in listQuestionTypes on question.QuestionTypeId equals questionType.Id
 
-                           join questionAnswers in listQuestionAnswers on question.Id equals questionAnswers.QuestionId
+                           //join questionAnswers in listQuestionAnswers on question.Id equals questionAnswers.QuestionId
                            where quiz.Id == questionId
                            select new
                            {
                                Text = question.QuestionText,
                                IsAutomatic = questionType.IsAutomatic,
-                               Answers = question.QuestionAnswers.ToList()
+                               Answers = new List<string>(question.QuestionAnswers.Select(a=>a.AnswerText).ToList())
                            };
             var quizInfoList = quizInfo.ToList();
             return Json(quizInfoList, JsonRequestBehavior.AllowGet);
