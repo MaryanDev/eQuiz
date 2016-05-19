@@ -86,5 +86,20 @@ input[type="button"] {
     margin-left: 10%;
 }
 #quizNav table{
-    width: 100%;
+    /*width: 100%;*/
+    margin:auto;
+}
+
+.navQuestions{
+    border:1px solid black;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left:100px;
+    margin-right:100px;
+}
+
+.emptyTdInQuestNav{
+    width:auto;
+    height:auto;
 }
