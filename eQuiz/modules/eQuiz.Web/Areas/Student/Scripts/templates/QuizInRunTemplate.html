@@ -3,7 +3,7 @@
         <nav id="quizNav">
             <table>
                 <tr>
-                    <td class="navQuestions" ng-repeat="question in quizQuestions">{{$index + 1}}</td>
+                    <td class="navQuestions" ng-repeat="question in quizQuestions" ng-click="setCurrentQuestion($index)">{{$index + 1}}</td>
                     <!--<td class="emptyTdInQuestNav" ng-repeat-end="">--------</td>-->
                 </tr>
                 <tr>
@@ -15,14 +15,15 @@
         <div id="questAndAnswer">
             <ul>
                 <li>
-                    <h2>Some question</h2>
+                    <h2>{{quizQuestions[currentQuestion].Text}}</h2>
                 </li>
-                <li ng-repeat="answer in quizQuestions.Answers">
+                <li ng-repeat="answer in quizQuestions[currentQuestion].Answers" ng-if="quizQuestions[currentQuestion].IsAutomatic">
                     <p>
-                        <input type="radio"> Variant1
+                        <input type="radio" name="answersGroup" > {{answer}}
                     </p>
                 </li>  
             </ul>
+            <textarea ng-if="!quizQuestions[currentQuestion].IsAutomatic"></textarea>
         </div>
     </div>
 

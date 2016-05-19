@@ -5,6 +5,11 @@
     equizModule.controller("quizInRunCtrl", ["$scope", "$http", "$routeParams", function ($scope, $http, $routeParams) {
         $scope.quizQuestions = null;
         $scope.quizId = $routeParams.id;
+        $scope.currentQuestion = 0;
+
+        $scope.setCurrentQuestion = function (questionId) {
+            $scope.currentQuestion = questionId;
+        };
 
         getQuestionById($scope.quizId);
 
