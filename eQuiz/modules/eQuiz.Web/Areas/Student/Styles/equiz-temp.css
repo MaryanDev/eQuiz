@@ -103,3 +103,10 @@ input[type="button"] {
     width:auto;
     height:auto;
 }
+
+#timer{
+    text-align:center;
+}
+#timerContainer{
+    text-align:center;
+}

@@ -7,7 +7,7 @@
             controller: "dashboardCtrl",
             controllerAs: "dashboardCtrl"
         })
-        .when("/quizInRun/:id", {
+        .when("/quizInRun/:id/:dura/", {
             templateUrl: "/Areas/Student/Scripts/templates/QuizInRunTemplate.html",
             controller: "quizInRunCtrl",
             controllerAs: "quizCtrl"

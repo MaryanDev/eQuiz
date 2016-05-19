@@ -5,7 +5,9 @@
     equizModule.controller("quizInRunCtrl", ["$scope", "$http", "$routeParams", function ($scope, $http, $routeParams) {
         $scope.quizQuestions = null;
         $scope.quizId = $routeParams.id;
+        $scope.quizDuration = $routeParams.dura;
         $scope.currentQuestion = 0;
+        $scope.finalUserResult = [];
 
         $scope.setCurrentQuestion = function (questionId) {
             if (questionId < $scope.quizQuestions.length && questionId >= 0)
