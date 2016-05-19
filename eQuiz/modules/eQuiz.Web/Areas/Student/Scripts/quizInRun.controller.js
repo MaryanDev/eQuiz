@@ -8,6 +8,7 @@
         $scope.currentQuestion = 0;
 
         $scope.setCurrentQuestion = function (questionId) {
+            if (questionId < $scope.quizQuestions.length && questionId >= 0)
             $scope.currentQuestion = questionId;
         };
 

@@ -31,11 +31,11 @@
         <table>
             <tr>
                 <td>
-                    <input type="button" value="&laquo Previous">
+                    <input type="button" value="&laquo Previous" ng-click="setCurrentQuestion(currentQuestion - 1)">
                 </td>
                 <td class="empty"></td>
                 <td>
-                    <input type="button" value="Next &raquo">
+                    <input type="button" value="Next &raquo" ng-click="setCurrentQuestion(currentQuestion + 1)">
                 </td>
                 <td class="empty"></td>
                 <td>
