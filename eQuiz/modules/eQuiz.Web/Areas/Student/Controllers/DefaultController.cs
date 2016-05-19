@@ -16,6 +16,7 @@ namespace eQuiz.Web.Areas.Student.Controllers
         private SqlQuizQuestionRepository _quizQuestionRepo;
         private SqlQuizVariantRepository _questionVariantRepo;
         private SqlQuestionRepository _questionRepo;
+        private SqlQuestionAnswerRepository _questionAnswerRepo;
 
 
 
@@ -26,6 +27,7 @@ namespace eQuiz.Web.Areas.Student.Controllers
             _quizQuestionRepo = new SqlQuizQuestionRepository();
             _questionVariantRepo = new SqlQuizVariantRepository();
             _questionRepo = new SqlQuestionRepository();
+            _questionAnswerRepo = new SqlQuestionAnswerRepository();
         }
         [HttpGet]
         public ActionResult Index()
@@ -76,17 +78,21 @@ namespace eQuiz.Web.Areas.Student.Controllers
             var listQuestionTypes = _questionTypeRepo.GetAllQuestionTypes();
             var listQuizQuestions = _quizQuestionRepo.GetAllQuizQuestions();
             var listQuizVariants = _questionVariantRepo.GetAllVariants();
+            var listQuestionAnswers = _questionAnswerRepo.GetAllQuestionAnswers();
 
             var quizInfo = from quiz in listQuizes
                            join variant in listQuizVariants on quiz.Id equals variant.QuizId
                            join quizQuestion in listQuizQuestions on variant.Id equals quizQuestion.QuizVariantId
                            join question in listQuestions on quizQuestion.QuestionId equals question.Id
                            join questionType in listQuestionTypes on question.QuestionTypeId equals questionType.Id
+
+                           join questionAnswers in listQuestionAnswers on question.Id equals questionAnswers.QuestionId
                            where quiz.Id == questionId
                            select new
                            {
                                Text = question.QuestionText,
-                               IsAutomatic = questionType.IsAutomatic
+                               IsAutomatic = questionType.IsAutomatic,
+                               Answers = question.QuestionAnswers.ToList()
                            };
             var quizInfoList = quizInfo.ToList();
             return Json(quizInfoList, JsonRequestBehavior.AllowGet);

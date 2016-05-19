@@ -16,7 +16,7 @@ namespace eQuiz.Repositories
             {
                 //context.Configuration.ProxyCreationEnabled = false;
 
-                var query = from question in context.Questions
+                var query = from question in context.Questions.Include("QuestionAnswers")
                             select question;
 
                 result = query.ToList();
