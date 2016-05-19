@@ -17,7 +17,7 @@
                     {{quiz.TimeLimitMinutes}}
                 </td>
                 <td>
-                    <a href='#/quizInRun' ng-if="quiz.InternetAccess" ng-click="getQuestionById(quiz.Id)">Start{{quiz.Id}}</a>
+                    <a href='#/quizInRun/{{quiz.Id}}' ng-if="quiz.InternetAccess" ng-click="getQuestionById(quiz.Id)">Start{{quiz.Id}}</a>
                     <div ng-if="!quiz.InternetAccess">Inactive</div>
                 </td>
             </tr>

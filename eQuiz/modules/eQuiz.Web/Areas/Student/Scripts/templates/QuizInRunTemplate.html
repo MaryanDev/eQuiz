@@ -3,11 +3,11 @@
         <nav id="quizNav">
             <table>
                 <tr>
-                    <td class="navQuestions">1</td>
-                    <td class="emptyTdInQuestNav">--------</td>
+                    <td class="navQuestions" ng-repeat="question in quizQuestions">{{$index + 1}}</td>
+                    <!--<td class="emptyTdInQuestNav" ng-repeat-end="">--------</td>-->
                 </tr>
                 <tr>
-                    <td>Q</td>
+                    <td ng-repeat="question in quizQuestions">Q{{$index + 1}}</td>
                 </tr>
             </table>
         </nav>

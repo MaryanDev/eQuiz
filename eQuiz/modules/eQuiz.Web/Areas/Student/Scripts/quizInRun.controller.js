@@ -2,10 +2,13 @@
 (function (angular) {
     var equizModule = angular.module("equizModule");
 
-    equizModule.controller("quizInRunCtrl", ["$scope", "$http",  function ($scope, $http) {
-        
-        $scope.getQuestionById = function (questionId) {
+    equizModule.controller("quizInRunCtrl", ["$scope", "$http", "$routeParams", function ($scope, $http, $routeParams) {
+        $scope.quizQuestions = null;
+        $scope.quizId = $routeParams.id;
 
+        getQuestionById($scope.quizId);
+
+        function getQuestionById(questionId) {
             $http({
                 method: "GET",
                 url: "GetQuestionsById",
@@ -13,6 +16,7 @@
 
             }).then(function (response) {
                 console.log(response.data);
+                $scope.quizQuestions = response.data;
             });
         };
 
