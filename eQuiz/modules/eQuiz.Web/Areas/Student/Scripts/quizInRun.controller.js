@@ -4,7 +4,8 @@
 
     equizModule.controller("quizInRunCtrl", ["$scope", "$http", "$routeParams", "$interval",
         function ($scope, $http, $routeParams, $interval) {
-        $scope.quizQuestions = null;
+            $scope.quizQuestions = null;
+
         $scope.quizId = $routeParams.id;
         $scope.quizDuration = $routeParams.dura;
         $scope.currentQuestion = 0;
@@ -32,6 +33,13 @@
                 console.log(response.data);
                 $scope.quizQuestions = response.data;
             });
+        };
+
+        $scope.setUserChoice = function (index,questionId, answerId, isAutomatic, quizBlock, answerText, answerTime) {
+            $scope.finalUserResult.answerResult[index] = {
+                Id: questionId, AnswerId: answerId, AnswerText: answerText, answerTime: answerTime, IsAutomatic: isAutomatic, QuizBlock: quizBlock
+            };
+            console.log($scope.finalUserResult);
         };
 
         /////////////////////////////////TIMER

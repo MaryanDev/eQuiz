@@ -97,11 +97,14 @@ namespace eQuiz.Web.Areas.Student.Controllers
                                Text = question.QuestionText,
                                IsAutomatic = questionType.IsAutomatic,
                                //Not a best solution but only one i have found
-                               Answers = (from questAnswer in listQuestionAnswers
+                               Answers = from questAnswer in listQuestionAnswers
                                          join answer in listAnswers on questAnswer.AnswerId equals answer.Id
                                          where questAnswer.QuestionId == question.Id
-                                         select answer.AnswerText)
-                                         .ToList(),
+                                         select new
+                                         {
+                                             Text = answer.AnswerText,
+                                             Id = answer.Id
+                                         },    
                                QuizBlock = quizQuestion.QuizBlockId
                            };
             var quizInfoList = quizInfo.ToList();
