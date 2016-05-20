@@ -7,7 +7,12 @@
         $scope.quizId = $routeParams.id;
         $scope.quizDuration = $routeParams.dura;
         $scope.currentQuestion = 0;
-        $scope.finalUserResult = [];
+        $scope.finalUserResult = {
+            quizId: $scope.quizId,
+            startDate: null,
+            finishDate: null,
+            answerResult: []
+        };
 
         $scope.setCurrentQuestion = function (questionId) {
             if (questionId < $scope.quizQuestions.length && questionId >= 0)

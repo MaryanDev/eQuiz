@@ -22,7 +22,7 @@
                 </li>
                 <li ng-repeat="answer in quizQuestions[currentQuestion].Answers" ng-if="quizQuestions[currentQuestion].IsAutomatic">
                     <p>
-                        <input type="radio" name="answersGroup" > {{answer}}
+                        <input type="radio" name="answersGroup" value="{{answer.Id}}" > {{answer}}
                     </p>
                 </li>  
             </ul>

@@ -7,17 +7,17 @@ using eQuiz.Entities;
 
 namespace eQuiz.Repositories
 {
-    public class SqlQuizVariantRepository : IQuizVariantRepository
+    public class SqlAnswerRepository : IAnswerRepository
     {
-        public IEnumerable<QuizVariant> GetAllVariants()
+        public IEnumerable<Answer> GetAllAnswers()
         {
-            List<QuizVariant> result;
+            List<Answer> result;
             using (var context = new eQuizEntities())
             {
-                //context.Configuration.ProxyCreationEnabled = false;
+                context.Configuration.ProxyCreationEnabled = false;
 
-                var query = from variant in context.QuizVariants
-                            select variant;
+                var query = from answer in context.Answers.Include("tblQuestionAnswers")
+                            select answer;
 
                 result = query.ToList();
             }

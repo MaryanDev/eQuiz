@@ -7,8 +7,8 @@ using eQuiz.Entities;
 
 namespace eQuiz.Repositories
 {
-    public interface IQuizVariantRepository
+    public interface IAnswerRepository
     {
-        IEnumerable<QuizVariant> GetAllVariants();
+        IEnumerable<Answer> GetAllAnswers();
     }
 }
