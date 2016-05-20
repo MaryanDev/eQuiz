@@ -72,9 +72,9 @@ namespace eQuiz.Web.Areas.Student.Controllers
             return Json(quizzesList, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult GetQuestionsById(string id)
+        public JsonResult GetQuestionsById(int id)
         {
-            int questionId = Convert.ToInt32(id);
+            int questionId = id;
             var listQuizes = _quizRepo.GetAllQuizzes();
             var listQuestions = _questionRepo.GetAllQuestions();
             var listQuestionTypes = _questionTypeRepo.GetAllQuestionTypes();
