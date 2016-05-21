@@ -2,8 +2,8 @@
 (function (angular) {
     var equizModule = angular.module("equizModule");
 
-    equizModule.controller("quizInRunCtrl", ["$scope", "$http", "$routeParams", "$interval",
-        function ($scope, $http, $routeParams, $interval) {
+    equizModule.controller("quizInRunCtrl", ["$scope", "$http", "$routeParams", "timerService",
+        function ($scope, $http, $routeParams, timerService) {
             $scope.quizQuestions = null;
 
             $scope.quizId = $routeParams.id;
@@ -48,7 +48,7 @@
                 //console.log($scope.finalUserResult.answerResult.length);
             };
 
-            /////////////////////////////////TIMER
+            // Timer
             $scope.tSeconds = 0;
             $scope.tMinutes = $scope.quizDuration;
 
@@ -57,62 +57,15 @@
             $scope.myStyle = {};
             var stop;
 
-
             $scope.start = function () {
-                if (angular.isDefined(stop)) return;
-
-                stop = $interval(function () {
-
-                    if ($scope.timer_1 > 0) {
-                        $scope.timer_1 = $scope.timer_1 - 1;
-                    } else if ($scope.minutes > 0) {
-                        $scope.minutes = $scope.minutes - 1;
-                        $scope.timer_1 = 59;
-                    } else {
-                        $scope.Stop();
-                    }
-                    if ($scope.minutes <= 119) {
-                        $scope.myStyle = {
-                            color: 'red'
-                        }
-                    } else {
-                        $scope.myStyle = {
-                            color: 'black'
-                        }
-                    }
-                }, 1000);
-            };//start timer
-
+                timerService.start();
+            }
             $scope.stop = function () {
-                if (angular.isDefined(stop)) {
-                    $interval.cancel(stop);
-                    stop = undefined;
-                }
-            };
-
+                timerService.stop();
+            }
             $scope.reset = function () {
-                $scope.Stop();
-                if ($scope.tSeconds >= 60 && $scope.tSeconds < 0) {
-                    $scope.tSeconds = 0;
-                }
-
-                if ($scope.tMinutes < 0) {
-                    $scope.tMinutes = 0;
-                }
-
-                $scope.timer_1 = $scope.tSeconds;
-                $scope.minutes = $scope.tMinutes;
-                $scope.myStyle = {
-                    color: 'black'
-                }
-            };
-
-            $scope.$on('$destroy', function () {
-                $scope.Stop();
-            });
-
-
-
+                timerService.reset();
+            }
 
         }]);
 })(angular);
